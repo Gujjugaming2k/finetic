@@ -91,7 +91,7 @@ export async function getStreamUrl(
   // Generate a unique PlaySessionId for each stream request
   const playSessionId = crypto.randomUUID();
 
-  let url = `{mediaSource.Path}`;
+  let url = `${mediaSource.Path}`;
   console.log(`video URL: ${url}`);
   // Apply custom bitrate if specified (takes precedence over quality presets)
   if (videoBitrate && videoBitrate > 0) {

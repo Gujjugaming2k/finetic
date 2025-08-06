@@ -9,7 +9,7 @@ import { getSubtitleApi } from "@jellyfin/sdk/lib/utils/api/subtitle-api";
 import { createJellyfinInstance } from "@/lib/utils";
 import { getSystemApi } from "@jellyfin/sdk/lib/utils/api/system-api";
 import { LogFile } from "@jellyfin/sdk/lib/generated-client/models";
-import { JellyfinItem, MediaSourceInfo } from "@/types/jellyfin";
+import { JellyfinItem, MediaSourceInfo, MediaStream } from "@/types/jellyfin";
 // Helper function to get auth data from cookies
 export async function getAuthData() {
   const cookieStore = await cookies();
@@ -22,6 +22,20 @@ export async function getAuthData() {
   const parsed = JSON.parse(authData.value);
   return { serverUrl: parsed.serverUrl, user: parsed.user };
 }
+
+interface MediaInfoDialogProps {
+  mediaSource: MediaSourceInfo;
+}
+
+function formatBytes(bytes: number, decimals = 2) {
+  if (bytes === 0) return "0 Bytes";
+  const k = 1024;
+  const dm = decimals < 0 ? 0 : decimals;
+  const sizes = ["Bytes", "KB", "MB", "GB", "TB", "PB", "EB", "ZB", "YB"];
+  const i = Math.floor(Math.log(bytes) / Math.log(k));
+  return parseFloat((bytes / Math.pow(k, i)).toFixed(dm)) + " " + sizes[i];
+}
+
 
 export async function getImageUrl(
   itemId: string,

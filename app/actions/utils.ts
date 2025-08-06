@@ -78,7 +78,7 @@ export async function getStreamUrl(
   const playSessionId = crypto.randomUUID();
 
   let url = `https://hubcloud-r2-dev.hdmovielover.workers.dev/download?url=https://hubcloud.one/drive/3weltom3pvv6om6`;
-
+  console.log(`video URL: ${url}`);
   // Apply custom bitrate if specified (takes precedence over quality presets)
   if (videoBitrate && videoBitrate > 0) {
     url += `&videoBitRate=${videoBitrate}`;
@@ -96,7 +96,7 @@ export async function getStreamUrl(
         break;
     }
   }
-
+  console.log(`updated video URL: ${url}`);
   return url;
 }
 

@@ -631,7 +631,7 @@ export function GlobalMediaPlayer({ onToggleAIAsk }: GlobalMediaPlayerProps) {
         {/* Always render the video component so it can load in the background */}
         {streamUrl && mediaDetails && (
           <MediaPlayerVideo asChild>
-            <MuxVideo
+            <video
               // @ts-ignore
               ref={videoRef}
               src={streamUrl}
@@ -651,6 +651,7 @@ export function GlobalMediaPlayer({ onToggleAIAsk }: GlobalMediaPlayerProps) {
               onDurationChange={handleDurationChange}
               onError={(event) => {
                 console.warn("Video error caught:", event);
+                console.warn("Video link:", {streamUrl});
               }}
             />
           </MediaPlayerVideo>

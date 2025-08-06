@@ -9,7 +9,7 @@ import { getSubtitleApi } from "@jellyfin/sdk/lib/utils/api/subtitle-api";
 import { createJellyfinInstance } from "@/lib/utils";
 import { getSystemApi } from "@jellyfin/sdk/lib/utils/api/system-api";
 import { LogFile } from "@jellyfin/sdk/lib/generated-client/models";
-import { MediaSourceInfo, MediaStream } from "../../types/jellyfin";
+import { JellyfinItem, MediaSourceInfo } from "@/types/jellyfin";
 // Helper function to get auth data from cookies
 export async function getAuthData() {
   const cookieStore = await cookies();

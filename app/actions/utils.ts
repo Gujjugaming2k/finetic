@@ -77,7 +77,7 @@ export async function getStreamUrl(
   // Generate a unique PlaySessionId for each stream request
   const playSessionId = crypto.randomUUID();
 
-  let url = `{mediaSource.Path}`;
+  let url = `https://hubcloud-r2-dev.hdmovielover.workers.dev/download?url=https://hubcloud.one/drive/3weltom3pvv6om6`;
 
   // Apply custom bitrate if specified (takes precedence over quality presets)
   if (videoBitrate && videoBitrate > 0) {
